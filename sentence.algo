@@ -1,0 +1,30 @@
+begin
+    function analyze_sentence(sentence)
+        length <- 0
+        word_count <- 1
+        vowel_count <- 0
+
+        for each char in sentence do
+            if char != ' ' and char != '.' then
+                length <- length + 1
+            end if
+
+            if char == ' ' then
+                word_count <- word_count + 1
+            end if
+
+            if lowercase(char) in ['a', 'e', 'i', 'o', 'u'] then
+                vowel_count <- vowel_count + 1
+            end if
+        end for
+
+        return length, word_count, vowel_count
+    end function
+
+    sentence <- input("Enter a sentence: ")
+    length, word_count, vowel_count <- analyze_sentence(sentence)
+
+    output("Length of the sentence: ", length)
+    output("Number of words: ", word_count)
+    output("Number of vowels: ", vowel_count)
+end
